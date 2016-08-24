@@ -102,7 +102,7 @@ namespace Socket
 
         Address address(port);
 
-        if (bind(this->_socket_id, (struct sockaddr*)&address, sizeof(struct sockaddr)) == -1)
+        if (::bind(this->_socket_id, (struct sockaddr*)&address, sizeof(struct sockaddr)) == -1)
         {
             stringstream error;
             error << "[listen_on_port] with [port=" << port << "] Cannot bind socket";
