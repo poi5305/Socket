@@ -65,7 +65,9 @@ namespace Socket
 
     Ip Address::ip(void)
     {
-        return inet_ntoa(this->sin_addr);
+        char ret[18];
+        inet_ntop(AF_INET, &(this->sin_addr), ret, sizeof ret); // thread safe
+        return Ip(ret);
     }
 
     Ip Address::ip(Ip ip)
