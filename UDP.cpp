@@ -112,7 +112,7 @@ namespace Socket
     int UDP::receive(Address *address, T *data, size_t len, unsigned int *received_elements)
     {
         if (!this->_opened) this->open();
-        if (!this->_binded) throw SocketException("[receive] Make the socket listening before receiving");
+        //if (!this->_binded) throw SocketException("[receive] Make the socket listening before receiving");
         
         len *= sizeof(T);
         if (len > (SOCKET_MAX_BUFFER_LEN * sizeof(T)))
